@@ -16,7 +16,7 @@ module.exports = {
       const conta = await Conta.create({ nome, saldo_inicial });
       return res.status(201).json(conta);
     } catch (error) {
-      return res.status(500).json({ error: "Erro ao criar conta" });
+      return res.status(500).json({ error: "Erro ao criar conta", message: error });
     }
   },
 
