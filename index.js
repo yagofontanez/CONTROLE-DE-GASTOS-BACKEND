@@ -9,12 +9,8 @@ app.use(routes);
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
+    connectionString: process.env.DATABASE_URL || 'postgres://postgres:yago@localhost:5432/controle-de-gastos',
+  });
 
 pool.connect((err) => {
   if (err) {
